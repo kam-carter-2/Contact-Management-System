@@ -1,0 +1,7 @@
+# Design Memo: Contact Management Hash Table
+
+A hash table is the ideal data structure for this contact management system because it allows constant-time average lookups and insertions. Since contacts are frequently accessed by name, a hash table provides the efficiency required to retrieve data almost instantly, even as the dataset grows. Unlike lists, which require linear time to search through every element, the hash function in a hash table directly maps a contact’s name to an index, minimizing search time.
+
+For collision handling, I implemented separate chaining using a linked list structure. If two names hash to the same index, the new contact is added to the linked list at that position. This ensures that collisions do not overwrite data, and all contacts can still be accessed efficiently. When a duplicate key (name) is added, the system updates the existing contact’s number rather than creating a new entry.
+
+An engineer would choose a hash table over a list when speed and frequent lookups are essential, such as managing large datasets like contacts or inventory systems. Compared to trees, hash tables are typically faster for direct key lookups since they don’t rely on ordered traversal. While trees can provide sorted data, hash tables excel in scenarios where fast, unordered access is the primary goal—making them perfect for this assignment’s constraints.
